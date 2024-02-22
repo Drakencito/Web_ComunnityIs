@@ -19,7 +19,7 @@ function App() {
         <GlobalField label="Confirmar Contraseña" placeholder="***********" type="password" />
         <div className="terms-checkbox">
           <GlobalField label="" type="checkbox" />
-          <Paragraph text="Al registrarse, aceptas nuestros Términos de Servicio y Política de Privacidad" />
+          <Paragraph text="Al registrarte, aceptarás nuestros Términos de Servicio y Política de Privacidad" />
         </div>
         <button className="register-button">Registrarme</button>
         <Paragraph text="_______________ o _______________" />
