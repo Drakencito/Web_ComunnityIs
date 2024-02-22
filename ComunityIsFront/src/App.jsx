@@ -10,7 +10,7 @@ function App() {
       <div className='form-content'>
         <Paragraph text="Únete a nuestra comunidad estudiantil" />
         <Paragraph 
-          text="Bienvenido a nuestra  red social estudiantil. Regístrate ahora para conectarte con compañeros, acceder a recursos educativos y participar en eventos emocionantes"  
+          text="Bienvenido a nuestra increible red social estudiantil. Regístrate ahora para conectarte con compañeros, acceder a recursos educativos y participar en eventos emocionantes"  
         />
         <GlobalField label="Nombre(s)" placeholder="Nombre(s)" type="text" />
         <GlobalField label="Apellido(s)" placeholder="Apellido(s)" type="text" />
