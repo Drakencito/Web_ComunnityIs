@@ -1,6 +1,5 @@
 import React from 'react';
 import '../Admi/Admin.css'
-
 const AdminComponent = () => {
   return (
     <div className="admin-container">
@@ -48,9 +47,7 @@ const AdminComponent = () => {
             <button className="edit-button">Editar</button>
           </div>
         </div>
-        
-
-        <div className="admin-section-content">
+         <div className="admin-section-content">
           <h2 className="admin-section-title">Administración de Contenido</h2>
           <hr className="separator" />
           <div className="admin-subsection">
@@ -102,5 +99,4 @@ const AdminComponent = () => {
     </div>
   );
 };
-
 export default AdminComponent;

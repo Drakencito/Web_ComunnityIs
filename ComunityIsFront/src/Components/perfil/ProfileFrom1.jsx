@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './ProfileForm.css';
-const ProfileForm = () => {
+const ProfileForm1 = () => {
   const [formState, setFormState] = useState({
     idStudent: '32165461',
     phone: '123 456 7890',
@@ -17,19 +17,27 @@ const ProfileForm = () => {
       zipCode: '12345',
       country: 'México',
     },
+    multimediaFile: null, // New property to store the selected file
   });
 const handleChange = (e) => {
     const { name, value } = e.target;
     setFormState((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 const handleAddressChange = (e) => {
     const { name, value } = e.target;
     setFormState((prevState) => ({
       ...prevState,
-      address: { ...prevState.address, [name]: value }
+      address: { ...prevState.address, [name]: value },
+    }));
+  };
+const handleMultimediaChange = (e) => {
+    const file = e.target.files[0];
+    setFormState((prevState) => ({
+      ...prevState,
+      multimediaFile: file,
     }));
   };
 const handleSubmit = (e) => {
@@ -37,34 +45,41 @@ const handleSubmit = (e) => {
     console.log('Form submitted:', formState);
     // Aquí puedes enviar los datos a tu backend o realizar cualquier otra acción
   };
- return (
+return (
     <div className="profile-form-container">
       <h2>Completa tu perfil</h2>
       <p>¡Personaliza tu experiencia! Completa tu perfil para conectarte mejor con la comunidad.</p>
-      <form onSubmit={handleSubmit}>
-        <h3>Carrera</h3>
+      <h3>Nombre</h3>
         <input className='input-one' type="text" name="carreraStudent" value={formState.carreraStudent} onChange={handleChange} />
-        <h3>ID Estudiante</h3>
+<h3>Correo</h3>
+        <input className='input-one' type="text" name="carreraStudent" value={formState.carreraStudent} onChange={handleChange} />
+  <form onSubmit={handleSubmit}>
+ <h3>ID Estudiante</h3>
         <input className='input-one' type="text" name="idStudent" value={formState.idStudent} onChange={handleChange} />
-        <h3>Teléfono</h3>
-        <input className='input-one' type="tel" name="phone" value={formState.phone} onChange={handleChange} />
-        <div className='containerFormulario'>
+        {/* ... Existing form fields */}
+<h3>Telefono</h3>
+        <input className='input-one' type="text" name="idStudent" value={formState.idStudent} onChange={handleChange} />
+<div className='containerFormulario'>
           <h3>Intereses</h3>
           <input className='input-one' type="text" name="carreraStudent" value={formState.carreraStudent} onChange={handleChange} />
           {/* Código de los intereses */}
         </div>
-        <h3>Hobbies</h3>
-        <input className='input-one' type="text" name="hobbies" value={formState.hobbies} onChange={handleChange} />
-         <div className='containerFormulario'>
+<div className='containerFormulario'>
           <h3>Redes Sociales</h3>
           <input className='input-one' type="text" name="carreraStudent" value={formState.carreraStudent} onChange={handleChange} />
           <input className='input-one' type="text" name="carreraStudent" value={formState.carreraStudent} onChange={handleChange} />
           <input className='input-one' type="text" name="carreraStudent" value={formState.carreraStudent} onChange={handleChange} />
           {/* Código de las redes sociales */}
-        </div>
-        <h3>Acerca de mí</h3>
+<h3>Acerca de mí</h3>
         <textarea className='input-2' name="about" value={formState.about} onChange={handleChange}></textarea>
+        </div>
+        <h3>Seleccionar Archivos</h3>
+        <div className='file-container'>
+          <input type="file" name="multimediaFile" accept="image/*, audio/*, video/*" onChange={handleMultimediaChange} />
+        </div>
+        {/* ... Existing form fields */}
         <h3>Datos de Ubicación</h3>
+        <div className="address-container">
         <div className="address-container">
           <div className="profile-form">
             <label>
@@ -77,8 +92,12 @@ const handleSubmit = (e) => {
             </label>
           </div>
           <div className="profile-form">
+        <label>
+            No. Int.
+              <input type="text" name="zipCode" value={formState.address.zipCode} onChange={handleAddressChange} />
+            </label>
             <label>
-              C.P.
+             C.P.
               <input type="text" name="zipCode" value={formState.address.zipCode} onChange={handleAddressChange} />
             </label>
             <label>
@@ -93,11 +112,13 @@ const handleSubmit = (e) => {
             </label>
           </div>
         </div>
+        </div>
 <div className='container-button'>
           <button type="submit">Guardar cambios</button>
-        </div>        
+        </div>
       </form>
     </div>
   );
 };
-export default ProfileForm;
+export default ProfileForm1;
+
